@@ -1,0 +1,651 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Hind", sans-serif;
+  font-size: 16px;
+}
+l
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.web-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+}
+
+.content-container {
+  flex: 1 0 93%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.content-container2 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+#logo-monster {
+  display: block;
+  background-color: #4e184c;
+  overflow: hidden;
+  padding: 10px 20px;
+  height:40px;
+  
+}
+
+.sidebar {
+  width: 20%;
+  font-size: 20px;
+  text-align: center;
+  background-color: #e1c2fb;
+  flex-grow: 1;
+}
+
+.sidebar li {
+  background-color: #e1c2fb;
+  padding: 20px;
+  transition: background-color 0.2s linear;
+  -webkit-transition: background-color 0.2s linear;
+  -moz-transition: background-color 0.2s linear;
+}
+
+.sidebar li:hover {
+    cursor: pointer;
+    background-color: #B480C2;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /*min-height: 100%;*/
+  text-align: center;
+  padding: 20px;
+}
+
+.content h2 {
+  font-size: 25px;
+}
+
+#div1{
+        height:65px;
+        width:100%;
+        padding:0px;
+        margin:0px;
+           
+    }
+#div2{
+        height:410px;
+        width:100%;
+        overflow:auto;
+        overflow-x:hidden;
+        margin-bottom:20px;
+        background-color: rgb(124, 81, 138);
+    }
+
+.table {
+  width: 100%;
+  table-layout: fixed;
+  word-wrap: break-word;
+  border-collapse: collapse;
+  text-align: center;
+  margin-top: 10px;
+}
+.table th,
+.table td {
+  /*padding: 5px;*/
+  border: solid 1px black;
+  background-color: rgb(124, 81, 138); 
+  font-size: 15px;
+  color: white;
+}
+.table tbody tr:nth-child(odd) td {
+  background-color: white;
+  font-size: 15px;
+  color: black;
+  transition: 0.3s;
+}
+.table tbody tr:nth-child(even) td {
+  background-color: #e1c2fb;
+  font-size: 15px;
+  color: black;
+  transition: 0.3s;
+}
+
+.table tbody tr:nth-child(odd):hover td,
+.table tbody tr:nth-child(even):hover td {
+  background-color: #B480C2;
+  cursor:pointer;
+}
+
+.edit-page-table {
+    width: 100%;
+    table-layout: fixed;
+    word-wrap: break-word;
+    border-collapse: collapse;
+    text-align: center;
+    margin: 20px auto;
+}
+.edit-page-table th,
+.edit-page-table td {
+  padding: 5px;
+  border: solid 1px black;
+  background-color: rgb(124, 81, 138); 
+  font-size: 16px;
+  color: white;
+}
+.edit-page-table tbody tr:nth-child(odd) td {
+  background-color: white;
+  font-size: 15px;
+  color: black;
+  transition: 0.3s;
+}
+.edit-page-table tbody tr:nth-child(even) td {
+  background-color: #e1c2fb;
+  font-size: 15px;
+  color: black;
+  transition: 0.3s;
+}
+
+.required {
+  color: red;
+}
+
+.form-button {
+  width: 100px;
+}
+.confirmation-message {
+  font-size: 20px;
+  text-align: center;
+}
+.confirmation-message p {
+  padding: 5px;
+}
+.version-control {
+  text-align: left;
+  padding: 5px;
+}
+.button-area {
+  margin: 0 auto;
+  text-align: center;
+}
+
+#name{
+    border:none;
+}
+#version-control-description {
+  width: 350px;
+  height: 100px;
+  resize: none;
+  border:none;
+}
+#cancel-button {
+  width: 100px;
+}
+
+.radio {
+  width: 20px;
+}
+
+.text-area {
+  resize: none;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 30px;
+  border-radius: 10px;
+  background:rgb(150, 107, 161);
+  transition: background 0.3s;
+  text-decoration: none;
+  color: white;
+}
+.btn:hover {
+  background: #be99db;
+}
+
+#btnEdit {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-left: 20px;
+  border-radius: 10px;
+  background:rgb(150, 107, 161);
+  transition: background 0.3s;
+  text-decoration: none;
+  color: white;
+  border:none;
+}
+#btnEdit:hover {
+  background: #be99db;
+  cursor: pointer;
+}
+
+.popup {
+  position: fixed;
+  padding: 10px;
+  max-width: 500px;
+  border-radius: 10px;
+  border: solid 1px black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.9);
+  visibility: hidden;
+  opacity: 0;
+  /* "delay" the visibility transition */
+  -webkit-transition: opacity 0.5s, visibility 0s linear 0.5s;
+  transition: opacity 0.5s, visibility 0s linear 0.5s;
+  z-index: 1;
+}
+.popup:target {
+  visibility: visible;
+  opacity: 1;
+  /* cancel visibility transition delay */
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+.close-popup {
+  background: rgba(0, 0, 0, 0.7);
+  cursor: default;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  visibility: hidden;
+  /* "delay" the visibility transition */
+  -webkit-transition: opacity 0.5s, visibility 0s linear 0.5s;
+  transition: opacity 0.5s, visibility 0s linear 0.5s;
+}
+.popup:target + .close-popup {
+  opacity: 1;
+  visibility: visible;
+  /* cancel visibility transition delay */
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+#confirm-button {
+  display: inline-block;
+  padding: 10px 30px;
+  border-radius: 10px;
+  background:rgb(150, 107, 161);
+  transition: background 0.3s;
+  text-decoration: none;
+  color: white;s
+  margin-right: 2em;
+  font-size: 16px;
+  border: none;
+}
+#confirm-button:hover {
+  background: #be99db;
+  cursor: pointer;
+}
+.confirmation-message-header {
+  height: 40px;
+  background-color: #4e184c;
+  border-radius: 4px;
+  color: white;
+}
+
+.create-display {
+  text-align: left;
+  margin-top: 20px;
+  margin-left: 20px;
+  display: block;
+}
+
+.create-display form table {
+  margin-top: 20px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.label {
+  text-align: right ;
+  padding-right: 10px;
+}
+
+/* popup field */
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close{
+    float: right;
+    font-size: 40px;
+}
+
+.close:hover{
+    cursor: pointer;
+}
+
+
+.table-popup {
+  width: 100%;
+  table-layout: fixed;
+  word-wrap: break-word;
+  border-collapse: collapse;
+  text-align: center;
+  margin-top: 30px;
+}
+.table-popup th,
+.table-popup td {
+  padding: 5px;
+  border: solid 1px black;
+  background-color: rgb(124, 81, 138); 
+  font-size: 20px;
+  color: white;
+}
+.table-popup tbody tr:nth-child(odd) td {
+  background-color: white;
+  font-size: 16px;
+  color: black;
+}
+.table-popup tbody tr:nth-child(even) td {
+  background-color: #e1c2fb;
+  font-size: 16px;
+  color: black;
+}
+
+.furthur-info:hover{
+    cursor : pointer;
+}
+
+.page-header-area{
+    margin-bottom:20px;
+}
+
+.page-description{
+    color:black;
+    background-color:rgb(218, 218, 218);
+    border-radius: 3px;
+    padding: 3px 5px;
+    margin-top:3px;
+}
+.import-export-outer-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.import-export-outer-container h2 {
+  font-size: 28px;
+  background-color: rgba(98, 0, 126, 0.849);
+  color: white;
+}
+.exportContent{
+     display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 85%;
+  text-align: center;
+  padding: 20px;
+}
+
+.import-export-content-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  text-align: center;
+}
+
+.import-export-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 50%;
+  padding: 20px;
+}
+
+.import-export-content-container h2 {
+  font-size: 28px;
+  background-color: rgba(98, 0, 126, 0.849);
+  color: white;
+}
+
+.content-box {
+    margin-bottom: 20px;
+}
+
+.import-export-btn {
+  padding: 5px 10px;
+  margin: 10px;
+  width: 200px;
+  border-radius: 5px;
+  border: none;
+  background:#be99db;
+  transition: background 0.3s;
+  text-decoration: none;
+  color: white;
+}
+
+.import-export-btn:hover {
+  background:rgb(150, 107, 161);
+  cursor: pointer;
+}
+
+#inputFile {
+  margin: 20px 0;
+}
+
+.import-export-outer-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.import-export-outer-container h2 {
+  font-size: 28px;
+  background-color: rgba(98, 0, 126, 0.849);
+  color: white;
+}
+
+.error-table {
+  width: 50%;
+  table-layout: fixed;
+  word-wrap: break-word;
+  border-collapse: collapse;
+  text-align: center;
+  margin: 50px auto;
+}
+.error-table th,
+.error-table td {
+  padding: 5px;
+  border: solid 1px black;
+  background-color: rgb(124, 81, 138); 
+  font-size: 20px;
+  color: white;
+}
+.error-table tbody tr td {
+  background-color: white;
+  font-size: 16px;
+  color: black;
+}
+
+.table2 {
+  width: 100%;
+  table-layout: fixed;
+  word-wrap: break-word;
+  border-collapse: collapse;
+  text-align: center;
+  margin-top: 30px;
+}
+.table2 th,
+.table2 td {
+  padding: 5px;
+  border: solid 1px black;
+  background-color: rgb(124, 81, 138); 
+  font-size: 20px;
+  color: white;
+}
+.table2 tbody tr:nth-child(odd) td {
+  background-color: white;
+  font-size: 16px;
+  color: black;
+  transition: 0.3s;
+}
+.table2 tbody tr:nth-child(even) td {
+  background-color: #e1c2fb;
+  font-size: 16px;
+  color: black;
+  transition: 0.3s;
+}
+
+
+/* Box of each tutorial */
+.tutorial-content{
+  padding:20px 20px 20px 0px;
+  margin-bottom:10px;
+  background-color:white;
+  display: flex;
+  flex-direction: row;
+}
+
+/* Purple decoration box in front of each tutorial */
+.tutorial-content-box{
+  background-color:#be99db;
+  border-right: 10px solid #B480C2;
+  max-width:30px;
+  min-width:30px;
+  height:auto;
+}
+
+/* Table of contents text in tutorial page */
+.tutorial-table-of-content{
+  padding-left:20px;
+  text-align:left;
+  display: inline-block;
+}
+
+.tutorial-table-of-content h2{
+  text-transform: uppercase;
+}
+
+
+.tutorial-table-of-content ol{
+  padding-left:20px;
+}
+
+.tutorial-table-of-content ol li{
+  padding-left:20px;
+}
+
+
+.tutorial-table-of-content ol li a{
+  text-decoration: none;
+  color: black;
+  transition: color 0.2s linear;
+  -webkit-transition: color 0.2s linear;
+  -moz-transition: color 0.2s linear
+}
+
+.tutorial-table-of-content ol li a:hover{
+  color: #B480C2;
+  text-decoration-line: underline;
+}
+
+/* "Back to top" text at the bottom of each tutorial */
+.tutorial-content-back a{ 
+  margin-top:20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color:grey;
+  transition: color 0.2s linear;
+  -webkit-transition: color 0.2s linear;
+  -moz-transition: color 0.2s linear;
+}
+
+.tutorial-content-back a:hover{
+  color: #B480C2;
+  text-decoration-line: underline;
+}
+
+/* Tutorial-content header */
+.tutorial-content-text h2{
+  text-transform: uppercase;
+  color:rgb(150, 107, 161);
+}
+
+/* Text area in each tutorial */
+.tutorial-content-text{
+  padding-left:20px;
+  padding-right:20px;
+  text-align:left;
+  display: inline-block;
+}
+
+.tutorial-content-text a{
+  color: rgb(169, 123, 182);
+  transition: color 0.2s linear;
+  -webkit-transition: color 0.2s linear;
+  -moz-transition: color 0.2s linear
+}
+
+.tutorial-content-text a:hover{
+  color: black;
+}
+
+/* Numbered list in each tutorial */
+.tutorial-content-text ol{
+  padding-left:20px;
+  padding-bottom: 20px;
+}
+
+.tutorial-content-text ol li{
+  padding-left:20px;
+}
+
+.tutorial-content-text ol li a{
+  color: rgb(169, 123, 182);
+  transition: color 0.2s linear;
+  -webkit-transition: color 0.2s linear;
+  -moz-transition: color 0.2s linear
+}
+
+.tutorial-content-text ol li a:hover{
+  color: black;
+}
+
+/* Bulleted list in each tutorial */
+.tutorial-content-text ul{
+  padding-left:20px;
+  padding-bottom: 20px;
+}
+
+.tutorial-content-text ul li{
+  padding-left:20px;
+}
+
+.tutorial-content-text ul li a{
+  color: rgb(169, 123, 182);
+  transition: color 0.2s linear;
+  -webkit-transition: color 0.2s linear;
+  -moz-transition: color 0.2s linear
+}
+
+.tutorial-content-text ul li a:hover{
+  color: black;
+}
